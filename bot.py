@@ -42,42 +42,35 @@ async def on_member_join(member):
 @client.event
 async def on_message(message):
     #Ha saját maga írta, nem válaszol
-    if message.author == client.user:
-        return
+    if message.author.id == 418755604199243776:
+        await message.channel.send("Ádám buta")
 
     #köszönés
-    if message.content == ('!hello') or message.content == ('!helló') or message.content == ('!szia') or message.content == ('!hi') or message.content == ('!üdv'):
+    elif message.content == ('!hello') or message.content == ('!helló') or message.content == ('!szia') or message.content == ('!hi') or message.content == ('!üdv'):
         üdvözlés = random.choice(üdvözlések)
         print(üdvözlés)
         küldő =' {0.author.mention}!'.format(message)
         await message.channel.send(üdvözlés + küldő)
 
     #parancsok
-    if message.content == ('!help') or message.content == ('!info') or message.content == ('!botinfo') or message.content == ('!parancsok'):
-        msg = """Üdv, én Zeta klónja vagyok.
-\nNéhány hasznos dolgot tudok, mint taco-t adni az embereknek, vagy kiírni ezt a szöveget.
-\nParancsok:
+    elif message.content == ('!help') or message.content == ('!info') or message.content == ('!botinfo') or message.content == ('!parancsok'):
+        msg = """Tibi okosabb mint én
    !(bot)info, !parancsok, !help: Kiírja ezt az üzenetet.
    !tagok: Felsorolja a tagokat belépési sorrendben.
    !sad, !kár, !szomorú: Zétény éltal ihletve
-   !kakilniakarok, !szarniakarok, !iwanttopoo: Zétény által ihletve
-   !taco <mennyiség> <címzett>: BÉTA!!* Taco küldésével kifejezheted az elismerésedet valaki iránt.
-    Egyszerre 1-5 taco-t adhatsz egy embernek. Példa: !taco 3 @Pistabácsi13
-    Márta Nénihez a !help_márta_néni szükségeltetik beírni.
-
-    *nem létezik"""
+   !kakilniakarok, !szarniakarok, !iwanttopoo: Zétény által ihletve"""
         await message.channel.send(msg)
 
 
-    if message.content == ('!tagok'):
+    elif message.content == ('!tagok'):
         await message.channel.send('- ' + members)
 
 
-    if message.content == ('!kár') or message.content == ('!sad') or message.content == ('!szomorú'):
+    elif message.content == ('!kár') or message.content == ('!sad') or message.content == ('!szomorú'):
         await message.channel.send('Sajnálom... (⌣́_⌣̀) ')
 
 
-    if message.content == ('!kakilniakarok') or message.content == ('!szarniakarok') or message.content == ('!iwanttopoo'):
+    elif message.content == ('!kakilniakarok') or message.content == ('!szarniakarok') or message.content == ('!iwanttopoo'):
         await message.channel.send('Nemááá....  💩')
 
 
